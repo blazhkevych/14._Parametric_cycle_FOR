@@ -13,7 +13,10 @@ int main()
 {
 	setlocale(LC_ALL, ""); // работает только с потоком вывода
 
+	for (int i = 0; i < length; i++)
+	{
 
+	}
 
 	return 0;
 }

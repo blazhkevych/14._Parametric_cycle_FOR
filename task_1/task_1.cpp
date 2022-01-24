@@ -10,37 +10,22 @@ using std::endl;
 
 int main()
 {
-	setlocale(LC_ALL, ""); // работает только с потоком вывода
-
-	cout << "Введите высоту: " << endl;
-	int side{ 0 };
-	cin >> side;
-
-	int i{ 0 }, j{ 0 };
+	int i{ 0 }, j{ 0 }, symbol{ 219 }, side{ 21 };
 
 	for (i = 0; i < side; i++)
 	{
 		for (j = 0; j < side; j++)
 		{
-			if (i == j
-				)
+			if (i % 2 == 0 && j % 2 == 0 
+				|| i % 2 != 0 && j % 2 != 0)
 			{
-				int symbol = 219;
 				cout << (char)symbol;
 			}
 			else
-				cout << "  ";
+				cout << " ";
 		}
 		cout << "\n";
 	}
 
 	return 0;
 }
-//
-//int main()
-//{
-//	int code;
-//	cin >> code;
-//	cout << (char)code;
-//	return 0;
-//}
