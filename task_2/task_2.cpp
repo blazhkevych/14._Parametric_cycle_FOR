@@ -13,10 +13,20 @@ int main()
 {
 	setlocale(LC_ALL, ""); // работает только с потоком вывода
 
-	for (int i = 0; i < length; i++)
-	{
+	cout << "Введите число: " << endl;
+	long long unsigned int number{ 0 };
+	cin >> number;
 
+	int number_2{ 0 };
+	int temp = number;
+	for (; number > 0; ) // переворачиваем число 
+	{
+		number_2 = number_2 * 10 + (number % 10);
+		number = number / 10;
 	}
+	temp == number_2 ? // и сравниваем с введенным
+		cout << "Введенное число палиндром." :
+		cout << "Введенное число не палиндром." << endl;
 
 	return 0;
 }
