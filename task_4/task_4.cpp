@@ -20,32 +20,26 @@ int main()
 
 	int current_number{ 0 }, previous_number{ 0 },
 		start_position{ 0 }, max_start_position{ 0 },
-		amount_of_numbers{ 0 }, max_amount_of_numbers{ 0 };
+		amount_of_numbers{ 0 }, max_amount_of_numbers{ 0 }, i{ 0 };
 
-	for (int i = 0; i < 7; ++i)
+	for (i = 0; i < 7; i++)
 	{
 		cin >> current_number;
 		if (current_number >= previous_number)
-		{
 			amount_of_numbers++;
-		}
 		else
 		{
-			start_position = i - amount_of_numbers;
 			if (amount_of_numbers > max_amount_of_numbers)
 			{
 				max_amount_of_numbers = amount_of_numbers;
 				max_start_position = start_position;
 			}
 			amount_of_numbers = 1;
+			start_position = i;
 		}
 		previous_number = current_number;
 	}
 
-	/*if (amount_of_numbers > max_amount_of_numbers)
-	{
-
-	}*/
 	cout << "Максимальная длина цепочки: " << max_amount_of_numbers << endl;
 	cout << "Порядковый номер того числа, с которого цепочка началась : " << start_position << endl;
 
