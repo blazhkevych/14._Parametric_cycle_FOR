@@ -5,7 +5,7 @@
 числа, с которого цепочка началась.
 */
 
-// В задании один цикл fot, а внтури ифы, больше ничего.
+// В задании один цикл for, а внтури ифы, больше ничего.
 
 #include <iostream>
 using std::cout;
@@ -18,25 +18,36 @@ int main()
 
 	cout << "Введите 15 целых чисел:" << endl;
 
-	int number{ 0 }, temp{ 0 }, position{ 0 }, start_position{ 0 }, finish_position{ 0 }, count{ 0 };
+	int current_number{ 0 }, previous_number{ 0 },
+		start_position{ 0 }, max_start_position{ 0 },
+		amount_of_numbers{ 0 }, max_amount_of_numbers{ 0 };
 
-	for (int i = 0; i < 15; i++)
+	for (int i = 0; i < 7; ++i)
 	{
-		cin >> number;
-
-		int temp = number;
-
-		if (temp >= number)
+		cin >> current_number;
+		if (current_number >= previous_number)
 		{
-			start_position = 15-i;
-			count++;
-
+			amount_of_numbers++;
 		}
+		else
+		{
+			start_position = i - amount_of_numbers;
+			if (amount_of_numbers > max_amount_of_numbers)
+			{
+				max_amount_of_numbers = amount_of_numbers;
+				max_start_position = start_position;
+			}
+			amount_of_numbers = 1;
+		}
+		previous_number = current_number;
 	}
-	cout << "Максимальная длина цепочки: " <<count << endl;
-	cout << "порядковый номер того
-		числа, с которого цепочка началась : " <<count << endl;
 
+	/*if (amount_of_numbers > max_amount_of_numbers)
+	{
+
+	}*/
+	cout << "Максимальная длина цепочки: " << max_amount_of_numbers << endl;
+	cout << "Порядковый номер того числа, с которого цепочка началась : " << start_position << endl;
 
 	return 0;
 }
